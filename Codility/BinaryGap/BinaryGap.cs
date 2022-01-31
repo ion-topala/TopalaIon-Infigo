@@ -15,7 +15,6 @@ class BinaryGap {
         
         for (int i = 0; i < numberConvertedToBinary.Length; i++)
         {
-            
             if (numberConvertedToBinary[i] == '1')
             {
                 isCounting = true;
