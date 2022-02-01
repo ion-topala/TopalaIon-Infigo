@@ -7,6 +7,7 @@ public class BinaryGapWithBitwise
         int max = 0;
         int count = 0;
         bool foundFirstOne = false;
+        
         for (int i = 0; i < sizeof(long)*8; i++)
         {
             var current = (N >> i) & 1;

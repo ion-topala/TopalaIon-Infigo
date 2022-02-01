@@ -18,6 +18,7 @@ class BinaryGap {
             if (numberConvertedToBinary[i] == '1')
             {
                 isCounting = true;
+                
                 if (count >= max )
                 {
                     max = count;
