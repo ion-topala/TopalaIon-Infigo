@@ -53,10 +53,44 @@
         return (int) minDifference;
     }
 
+    public int TapeEquilibriumV2(int[] givenArray)
+    {
+        long sum = 0;
+        int lengthArray = givenArray.Length;
+        long sumToP = 0;
+        long minDifference = 0;
+        bool firstDifference = true;
+
+        for (int i = 0; i < lengthArray; i++)
+        {
+            sum += givenArray[i];
+        }
+
+        for (int i = 0; i < lengthArray - 1; i++)
+        {
+            sumToP += givenArray[i];
+            long rightDifference = sum - sumToP;
+            if (firstDifference)
+            {
+                minDifference = Math.Abs(sumToP - rightDifference);
+                firstDifference = false;
+            }
+            else
+            {
+                if (Math.Abs(sumToP - rightDifference) < minDifference)
+                {
+                    minDifference = Math.Abs(sumToP - rightDifference);
+                }
+            }
+        }
+        
+        return (int) minDifference;
+    }
+
     static public void Main(String[] args)
     {
         FrogJmp a = new FrogJmp();
-        int[] numbersArgument = Enumerable.Range(0, 100000).Select(it => 1000).ToArray();
-        a.TapeEquilibrium(numbersArgument);
+        int[] numbersArgument = {3, 1, 2, 4, 3};
+        Console.WriteLine(a.TapeEquilibriumV2(numbersArgument));
     }
 }
