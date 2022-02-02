@@ -77,20 +77,39 @@
         }
 
         var sumExpected = maxElement * (long) (maxElement + 1) / 2;
+        
         if (sumExpected == sum)
         {
             return 1;
         }
-        else
+        
+        return 0;
+    }
+    
+    public int CheckPermutationV3(int[] givenArray)
+    {
+        var length = (long) givenArray.Length;
+        var sumIndex = 0;
+        var sumNum = 0;
+        
+        for (int i = 0; i < length; i++)
         {
-            return 0;
+            sumIndex += i + 1;
+            sumNum += givenArray[i];
         }
+
+        if (sumIndex == sumNum)
+        {
+            return 1;
+        }
+        
+        return 0;
     }
 
     static public void Main(String[] args)
     {
         CountingElements obj = new CountingElements();
-        int[] arrayArgument = {4, 1, 3, 2};
-        Console.WriteLine(obj.CheckPermutationV2(arrayArgument));
+        int[] arrayArgument = {4, 1, 2};
+        Console.WriteLine(obj.CheckPermutationV3(arrayArgument));
     }
 }
