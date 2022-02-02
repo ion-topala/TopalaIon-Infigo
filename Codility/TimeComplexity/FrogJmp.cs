@@ -1,6 +1,6 @@
 ﻿namespace TimeComplexity;
 
-public class FrogJmp
+public class TimeComplexity
 {
     public int FrogJmpSolution(int currentPosition, int nextPosition, int stepSize)
     {
@@ -108,7 +108,7 @@ public class FrogJmp
 
     static public void Main(String[] args)
     {
-        FrogJmp a = new FrogJmp();
+        TimeComplexity a = new TimeComplexity();
         int[] numbersArgument = {3, 1, 2, 4, 3};
         Console.WriteLine(a.TapeEquilibriumV3(numbersArgument));
     }
