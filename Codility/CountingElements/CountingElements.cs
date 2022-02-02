@@ -1,5 +1,4 @@
-﻿
-class CountingElements
+﻿class CountingElements
 {
     private static void printArray(int[] array)
     {
@@ -15,8 +14,7 @@ class CountingElements
 
     private static int[] CreateVoidArray(int length)
     {
-        int[] count = new int[length + 1];
-        return count;
+        return new int[length + 1];
     }
 
     public int FrogRiverOne(int leavesPosition, int[] givenArray)
@@ -49,8 +47,3 @@ class CountingElements
         Console.WriteLine(obj.FrogRiverOne(5, arrayArgument));
     }
 }
-
-
-
-
-
