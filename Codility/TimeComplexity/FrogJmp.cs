@@ -19,10 +19,44 @@
         return (int) (expectedSum - realSum);
     }
 
+    public int TapeEquilibrium(int[] givenArray)
+    {
+        long lengthArray = givenArray.Length;
+        long sumToP = 0;
+        long minDifference = 0;
+        bool firstDifference = true;
+
+        for (int i = 0; i < lengthArray - 1; i++)
+        {
+            sumToP += givenArray[i];
+            long restSum = 0;
+            
+            for (int j = i+1 ; j < lengthArray; j++)
+            {
+                restSum += givenArray[j];
+            }
+
+            if (firstDifference)
+            {
+                minDifference = Math.Abs(sumToP - restSum);
+                firstDifference = false;
+            }
+            else
+            {
+                if (Math.Abs(sumToP - restSum) < minDifference)
+                {
+                    minDifference = Math.Abs(sumToP - restSum);
+                }
+            }
+        }
+        
+        return (int) minDifference;
+    }
+
     static public void Main(String[] args)
     {
         FrogJmp a = new FrogJmp();
-        int[] numbersArgument = Enumerable.Range(0, 100000).Select(it => 1000000).ToArray();
-        Console.WriteLine(a.PermMissingElem(numbersArgument));
+        int[] numbersArgument = Enumerable.Range(0, 100000).Select(it => 1000).ToArray();
+        a.TapeEquilibrium(numbersArgument);
     }
 }
