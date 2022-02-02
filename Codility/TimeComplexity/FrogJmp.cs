@@ -1,4 +1,6 @@
-﻿class FrogJmp
+﻿namespace TimeComplexity;
+
+public class FrogJmp
 {
     public int FrogJmpSolution(int currentPosition, int nextPosition, int stepSize)
     {
@@ -9,7 +11,7 @@
 
     public int PermMissingElem(int[] givenArray)
     {
-        long expectedSum = ((long) givenArray.Length + 1) * ((long)  givenArray.Length + 2) / 2;
+        long expectedSum = ((long) givenArray.Length + 1) * ((long) givenArray.Length + 2) / 2;
         long realSum = 0;
         for (int i = 0; i < givenArray.Length; i++)
         {
@@ -30,8 +32,8 @@
         {
             sumToP += givenArray[i];
             long restSum = 0;
-            
-            for (int j = i+1 ; j < lengthArray; j++)
+
+            for (int j = i + 1; j < lengthArray; j++)
             {
                 restSum += givenArray[j];
             }
@@ -49,7 +51,7 @@
                 }
             }
         }
-        
+
         return (int) minDifference;
     }
 
@@ -83,7 +85,24 @@
                 }
             }
         }
-        
+
+        return (int) minDifference;
+    }
+
+    public int TapeEquilibriumV3(int[] givenArray)
+    {
+        int lengthArray = givenArray.Length;
+        long sumToP = 0;
+        long minDifference = int.MaxValue;
+
+        long sum = givenArray.Sum();
+
+        for (int i = 0; i < lengthArray - 1; i++)
+        {
+            sumToP += givenArray[i];
+            minDifference = Math.Min(minDifference, Math.Abs(sumToP - (sum - sumToP)));
+        }
+
         return (int) minDifference;
     }
 
@@ -91,6 +110,6 @@
     {
         FrogJmp a = new FrogJmp();
         int[] numbersArgument = {3, 1, 2, 4, 3};
-        Console.WriteLine(a.TapeEquilibriumV2(numbersArgument));
+        Console.WriteLine(a.TapeEquilibriumV3(numbersArgument));
     }
 }

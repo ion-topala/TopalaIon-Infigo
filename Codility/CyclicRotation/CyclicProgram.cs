@@ -7,11 +7,11 @@ public class CyclicProgram
         if (givenArray.Length > 0)
         {
             int lengthArray = givenArray.Length;
-            
+
             for (int j = 0; j < numbersOfShifting; j++)
             {
                 int globalTemp = givenArray[0];
-                
+
                 for (int i = 0; i < lengthArray; i++)
                 {
                     if (i == 0)
@@ -34,7 +34,7 @@ public class CyclicProgram
     static public void Main(String[] args)
     {
         CyclicProgram obj = new CyclicProgram();
-        int[] numbersArgument = {};
+        int[] numbersArgument = { };
         obj.SolutionCyclicProgram(numbersArgument, 3);
     }
 }
