@@ -7,15 +7,15 @@ public class BinaryGapWithBitwise
         int max = 0;
         int count = 0;
         bool foundFirstOne = false;
-        
-        for (int i = 0; i < sizeof(long)*8; i++)
+
+        for (int i = 0; i < sizeof(long) * 8; i++)
         {
             var current = (N >> i) & 1;
-            
+
             if (current == 1)
             {
                 foundFirstOne = true;
-                
+
                 if (count >= max)
                 {
                     max = count;
@@ -34,7 +34,7 @@ public class BinaryGapWithBitwise
                 }
             }
         }
-        
+
         return max;
     }
 
