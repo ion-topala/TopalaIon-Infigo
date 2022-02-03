@@ -110,16 +110,16 @@
     {
         var counter = CreateVoidArray(lengthCount - 1);
         printArray(counter);
-        var k = 0;
+        var maxFromCounter = 0;
         
         for (int i = 0; i < givenArray.Length; i++)
         {
             if (givenArray[i] <= lengthCount && givenArray[i] >= 1)
             {
                 counter[givenArray[i]-1] += 1;
-                if (counter[givenArray[i]-1] >= k)
+                if (counter[givenArray[i]-1] >= maxFromCounter)
                 {
-                    k = counter[givenArray[i]-1];
+                    maxFromCounter = counter[givenArray[i]-1];
                 }
                 printArray(counter);
             }
@@ -127,7 +127,7 @@
             {
                 for (int j = 0; j < lengthCount; j++)
                 {
-                    counter[j] = k;
+                    counter[j] = maxFromCounter;
                 }
                 printArray(counter);
             }
@@ -136,10 +136,54 @@
         return givenArray;
     }
 
+    public int[] MaxCountersV2(int lengthCount, int[] givenArray)
+    {   
+        int[] countersArr = new int[lengthCount];
+        int max = 0;
+        int index;
+        int setAllCountersOp = lengthCount ;
+        int floor = 0;
+
+        for (int i = 0; i < givenArray.Length; i++)
+        {
+            index = givenArray[i] - 1;
+
+            if (index == setAllCountersOp)
+            {
+                floor = max;
+                continue;
+            }
+
+            if (countersArr[index] < floor)
+            {
+                countersArr[index] = floor + 1;
+            }
+            else
+            {
+                ++countersArr[index];
+            }
+
+            if (countersArr[index] > max)
+            {
+                ++max ;
+            }
+        }
+
+        for (int i = 0; i < countersArr.Length; i ++)
+        {
+            if (countersArr[i] < floor)
+            {
+                countersArr[i] = floor;
+            }
+        }
+
+        return countersArr;
+    }
+
     static public void Main(String[] args)
     {
         CountingElements obj = new CountingElements();
         int[] arrayArgument = {3, 4, 4, 6, 1, 4, 4};
-        obj.MaxCounters(5,arrayArgument);
+        obj.MaxCountersV2(5,arrayArgument);
     }
 }
