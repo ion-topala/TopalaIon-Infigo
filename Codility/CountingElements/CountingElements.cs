@@ -180,10 +180,28 @@
         return countersArr;
     }
 
+    public int CountNegatives(int[] numbers)
+    {
+        Array.Sort(numbers);
+        printArray(numbers);
+        var minValue = 1;
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            if (numbers[i] > 0 && numbers[i] == minValue)
+            {
+                minValue++;
+            }
+        }
+        
+        return minValue;
+    }
+
     static public void Main(String[] args)
     {
         CountingElements obj = new CountingElements();
-        int[] arrayArgument = {3, 4, 4, 6, 1, 4, 4};
-        obj.MaxCountersV2(5,arrayArgument);
+
+        int[] arrayArgument = {-1,-5,-2,1,3,6,4,1,2};
+        Console.WriteLine(obj.CountNegatives(arrayArgument));
     }
 }
