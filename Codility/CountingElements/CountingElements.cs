@@ -180,7 +180,7 @@
         return countersArr;
     }
 
-    public int CountNegatives(int[] numbers)
+    public int MissingInteger(int[] numbers)
     {
         Array.Sort(numbers);
         printArray(numbers);
@@ -202,6 +202,6 @@
         CountingElements obj = new CountingElements();
 
         int[] arrayArgument = {-1,-5,-2,1,3,6,4,1,2};
-        Console.WriteLine(obj.CountNegatives(arrayArgument));
+        Console.WriteLine(obj.MissingInteger(arrayArgument));
     }
 }
