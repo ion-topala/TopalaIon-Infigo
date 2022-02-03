@@ -106,10 +106,40 @@
         return 0;
     }
 
+    public int[] MaxCounters(int lengthCount, int[] givenArray)
+    {
+        var counter = CreateVoidArray(lengthCount - 1);
+        printArray(counter);
+        var k = 0;
+        
+        for (int i = 0; i < givenArray.Length; i++)
+        {
+            if (givenArray[i] <= lengthCount && givenArray[i] >= 1)
+            {
+                counter[givenArray[i]-1] += 1;
+                if (counter[givenArray[i]-1] >= k)
+                {
+                    k = counter[givenArray[i]-1];
+                }
+                printArray(counter);
+            }
+            else if (givenArray[i] > lengthCount)
+            {
+                for (int j = 0; j < lengthCount; j++)
+                {
+                    counter[j] = k;
+                }
+                printArray(counter);
+            }
+        }
+        
+        return givenArray;
+    }
+
     static public void Main(String[] args)
     {
         CountingElements obj = new CountingElements();
-        int[] arrayArgument = {4, 1, 2};
-        Console.WriteLine(obj.CheckPermutationV3(arrayArgument));
+        int[] arrayArgument = {3, 4, 4, 6, 1, 4, 4};
+        obj.MaxCounters(5,arrayArgument);
     }
 }
